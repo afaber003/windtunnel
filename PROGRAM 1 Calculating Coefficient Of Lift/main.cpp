@@ -46,6 +46,8 @@ int main(int argc, char *argv[]){
     return 0;
 }
 
+    /* Functions */
+
 void readData(const string &windTunnelFile, vector<double> &flightAngleVec, vector<double> &liftCoefficientVec){
     double temp;
     ifstream inputFile;
