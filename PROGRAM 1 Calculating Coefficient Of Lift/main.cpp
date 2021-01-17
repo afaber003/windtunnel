@@ -95,9 +95,11 @@ double interpolation(double userTestAngle, const vector<double> &flightAngleVec,
 }
 
 bool isOrdered(const vector<double> &v){           // vector v is ambiguous test vector. will be called only on angle vector
-    for (unsigned int i = 0; i < v.size() - 1; i++){
-        if (v[i] > v[i+1]){
-            return false;
+    if (v.size() > 0){
+        for (unsigned int i = 0; i < v.size() - 1; i++){
+            if (v[i] > v[i+1]){
+                return false;
+            }
         }
     }
     return true;
@@ -106,7 +108,7 @@ bool isOrdered(const vector<double> &v){           // vector v is ambiguous test
 void reorder(vector<double> &v, vector<double> &alt){        // called to reorder v and keep parallelism with alt
     unsigned int counter = 0;
     double temp;
-    while (counter != v.size() - 1){
+    while (counter != v.size() - 1 and v.size() != 0){
         for (unsigned int i = 0; i < v.size() - 1; i++){
             if (v[i] > v[i+1]){                 // if fails, v[i] and v[i+1] swaps places
                 temp = v[i];
